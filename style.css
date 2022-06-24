@@ -1,0 +1,101 @@
+:root {
+  --size: 1.25vmin;
+  --bgr-color: #00000080;
+  --ico-color: #b5161d;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+body:before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(315deg, #ff7777 0%, #ff7777 74%);
+  border-right: 2px solid #0006;
+}
+
+body:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(315deg, #8cdbff 0%, #8cdbff 74%);
+  z-index: -1;
+}
+
+.icon-temp {
+  width: calc(var(--size) * 20);
+  height: calc(var(--size) * 20);
+  border: 0;
+  border-radius: 100%;
+  outline: none;
+  cursor: pointer;
+  /*background: var(--bgr-color);*/
+  position: relative;
+  background: linear-gradient(145deg, #d41e26, #fb232d);
+  box-shadow: 12px 12px 24px #ba1a21, -12px -12px 24px #ff2833;
+}
+
+.icon-temp:before {
+  width: calc(var(--size) * 5.5);
+  height: calc(var(--size) * 10.2);
+  position: absolute;
+  content: "";
+  border-radius: calc(var(--size) * 3) calc(var(--size) * 3) 0 0;
+  top: calc(var(--size) * 2.6);
+  left: calc(var(--size) * 7.25);
+  background:
+    conic-gradient(from 90deg at 65% 50%, var(--ico-color) 0 25%, #fff0 0 100%),
+    conic-gradient(from 90deg at 78% 15%, var(--ico-color) 0 25%, #fff0 0 100%),
+    conic-gradient(from 0deg at 75% 25%, var(--ico-color) 0 25%, #fff0 0 100%),
+    conic-gradient(from 90deg at 75% 75%, var(--ico-color) 0 25%, #fff0 0 100%),
+    radial-gradient(circle at 50% 60%, #fff0 0 65%, var(--ico-color) calc(65% + 1px)),
+    linear-gradient(90deg, var(--ico-color) 0 30%, #fff0 0 100%),
+    repeating-linear-gradient(0deg, #fff0 0 calc(var(--size) * 0.5), var(--ico-color) 0 calc(var(--size) * 0.85));
+  background-size: 61% 100%, 90% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 26% 100%;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 100% 0;
+  background-repeat: no-repeat;
+}
+
+.icon-temp:after {
+  left: calc(var(--size) * 6.5);
+  top: calc(var(--size) * 10.5);
+  width: calc(var(--size) * 7);
+  height: calc(var(--size) * 7);
+  position: absolute;
+  border-radius: 100%;
+  content: "";
+  border: calc(var(--size) * 1.8) solid var(--ico-color);
+  box-sizing: border-box;
+  border-top-color: #fff0;
+  background:
+    radial-gradient(circle at 50% 48%, var(--ico-color) 0 50%, #fff0 calc(50% + 1px) 100%),
+    radial-gradient(circle at 50% 50%, var(--ico-color) 0 50%, #fff0 calc(50% + 1px) 100%);
+  background-repeat: no-repeat;
+}
+
+.icon-temp:hover {
+  --ico-color: #ffc0c0;
+}
+
+.icon-temp:active {
+  --ico-color: #ffc0c0;
+  --bgr-color: #000a;
+  background: linear-gradient(145deg, #fb232d, #d41e26);
+  box-shadow: 12px 12px 24px #ba1a21, -12px -12px 24px #ff2833, 0 0 5vmin 4vmin var(--ico-color);
+}
